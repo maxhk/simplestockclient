@@ -2,24 +2,14 @@ package client;
 
 
 import market_proto.Market;
-import org.apache.commons.cli.BasicParser;
-import org.apache.commons.cli.CommandLine;
-import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.net.Socket;
 import java.util.Properties;
 
-
-/**
- * Created by Max on 07/05/2015.
- */
 
 
 public class Main {
@@ -33,21 +23,9 @@ public class Main {
 
 
         // Parse command line arguments
-        BasicParser parser = new BasicParser();
-        Options opts = new Options();
-        opts.addOption("config", true, "Path to the config file");
-        CommandLine cmd = parser.parse(opts, args);
-        String configFilepath = cmd.getOptionValue("config");
 
-        // Parse config file
-        if ( configFilepath == null) {
-            logger.error("--config missing from command line arguments");
-            System.exit(1);
-        }
-
-        logger.info(String.format("Loading configuration from %s", configFilepath));
         Properties config = new Properties();
-        config.load(new FileInputStream(configFilepath));
+        config.load(Main.class.getClassLoader().getResourceAsStream("config.properties"));
 
         String marketHost = config.getProperty("market_host");
         String marketPortStr = config.getProperty("market_port");
@@ -55,12 +33,12 @@ public class Main {
         logger.info(String.format("Market port = %s", marketPortStr));
 
 
-        int marketPort = 0;
+        int marketPort;
         try {
             marketPort = Integer.parseInt(marketPortStr);
         } catch (NumberFormatException e) {
             marketPort = DEFAULT_MARKET_PORT;
-            logger.warn(String.format("Could not convert market port '%s' to int. Using default port instead (%d)", new Object[]{marketPortStr, DEFAULT_MARKET_PORT}));
+            logger.warn(String.format("Could not convert market port '%s' to int. Using default port instead (%d)", marketPortStr, DEFAULT_MARKET_PORT));
         }
 
 
