@@ -8,8 +8,8 @@ public final class Market {
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistry registry) {
   }
-  public interface NewOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:market_proto.New)
+  public interface OrderOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:market_proto.Order)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -45,43 +45,43 @@ public final class Market {
     float getPrice();
 
     /**
-     * <code>required .market_proto.New.OrderWay way = 4;</code>
+     * <code>required .market_proto.Order.OrderWay way = 4;</code>
      */
     boolean hasWay();
     /**
-     * <code>required .market_proto.New.OrderWay way = 4;</code>
+     * <code>required .market_proto.Order.OrderWay way = 4;</code>
      */
-    market_proto.Market.New.OrderWay getWay();
+    market_proto.Market.Order.OrderWay getWay();
 
     /**
-     * <code>required int64 client_order_id = 5;</code>
+     * <code>required .market_proto.Order.OrderType order_type = 5;</code>
      */
-    boolean hasClientOrderId();
+    boolean hasOrderType();
     /**
-     * <code>required int64 client_order_id = 5;</code>
+     * <code>required .market_proto.Order.OrderType order_type = 5;</code>
      */
-    long getClientOrderId();
+    market_proto.Market.Order.OrderType getOrderType();
   }
   /**
-   * Protobuf type {@code market_proto.New}
+   * Protobuf type {@code market_proto.Order}
    */
-  public static final class New extends
+  public static final class Order extends
       com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:market_proto.New)
-      NewOrBuilder {
-    // Use New.newBuilder() to construct.
-    private New(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      // @@protoc_insertion_point(message_implements:market_proto.Order)
+      OrderOrBuilder {
+    // Use Order.newBuilder() to construct.
+    private Order(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private New(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private Order(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
-    private static final New defaultInstance;
-    public static New getDefaultInstance() {
+    private static final Order defaultInstance;
+    public static Order getDefaultInstance() {
       return defaultInstance;
     }
 
-    public New getDefaultInstanceForType() {
+    public Order getDefaultInstanceForType() {
       return defaultInstance;
     }
 
@@ -91,7 +91,7 @@ public final class Market {
         getUnknownFields() {
       return this.unknownFields;
     }
-    private New(
+    private Order(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -132,7 +132,7 @@ public final class Market {
             }
             case 32: {
               int rawValue = input.readEnum();
-              market_proto.Market.New.OrderWay value = market_proto.Market.New.OrderWay.valueOf(rawValue);
+              market_proto.Market.Order.OrderWay value = market_proto.Market.Order.OrderWay.valueOf(rawValue);
               if (value == null) {
                 unknownFields.mergeVarintField(4, rawValue);
               } else {
@@ -142,8 +142,14 @@ public final class Market {
               break;
             }
             case 40: {
-              bitField0_ |= 0x00000010;
-              clientOrderId_ = input.readInt64();
+              int rawValue = input.readEnum();
+              market_proto.Market.Order.OrderType value = market_proto.Market.Order.OrderType.valueOf(rawValue);
+              if (value == null) {
+                unknownFields.mergeVarintField(5, rawValue);
+              } else {
+                bitField0_ |= 0x00000010;
+                orderType_ = value;
+              }
               break;
             }
           }
@@ -160,33 +166,33 @@ public final class Market {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return market_proto.Market.internal_static_market_proto_New_descriptor;
+      return market_proto.Market.internal_static_market_proto_Order_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return market_proto.Market.internal_static_market_proto_New_fieldAccessorTable
+      return market_proto.Market.internal_static_market_proto_Order_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              market_proto.Market.New.class, market_proto.Market.New.Builder.class);
+              market_proto.Market.Order.class, market_proto.Market.Order.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<New> PARSER =
-        new com.google.protobuf.AbstractParser<New>() {
-      public New parsePartialFrom(
+    public static com.google.protobuf.Parser<Order> PARSER =
+        new com.google.protobuf.AbstractParser<Order>() {
+      public Order parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new New(input, extensionRegistry);
+        return new Order(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<New> getParserForType() {
+    public com.google.protobuf.Parser<Order> getParserForType() {
       return PARSER;
     }
 
     /**
-     * Protobuf enum {@code market_proto.New.OrderWay}
+     * Protobuf enum {@code market_proto.Order.OrderWay}
      */
     public enum OrderWay
         implements com.google.protobuf.ProtocolMessageEnum {
@@ -242,7 +248,7 @@ public final class Market {
       }
       public static final com.google.protobuf.Descriptors.EnumDescriptor
           getDescriptor() {
-        return market_proto.Market.New.getDescriptor().getEnumTypes().get(0);
+        return market_proto.Market.Order.getDescriptor().getEnumTypes().get(0);
       }
 
       private static final OrderWay[] VALUES = values();
@@ -264,7 +270,98 @@ public final class Market {
         this.value = value;
       }
 
-      // @@protoc_insertion_point(enum_scope:market_proto.New.OrderWay)
+      // @@protoc_insertion_point(enum_scope:market_proto.Order.OrderWay)
+    }
+
+    /**
+     * Protobuf enum {@code market_proto.Order.OrderType}
+     */
+    public enum OrderType
+        implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <code>NEW = 0;</code>
+       */
+      NEW(0, 0),
+      /**
+       * <code>MODIFY = 1;</code>
+       */
+      MODIFY(1, 1),
+      /**
+       * <code>CANCEL = 2;</code>
+       */
+      CANCEL(2, 2),
+      ;
+
+      /**
+       * <code>NEW = 0;</code>
+       */
+      public static final int NEW_VALUE = 0;
+      /**
+       * <code>MODIFY = 1;</code>
+       */
+      public static final int MODIFY_VALUE = 1;
+      /**
+       * <code>CANCEL = 2;</code>
+       */
+      public static final int CANCEL_VALUE = 2;
+
+
+      public final int getNumber() { return value; }
+
+      public static OrderType valueOf(int value) {
+        switch (value) {
+          case 0: return NEW;
+          case 1: return MODIFY;
+          case 2: return CANCEL;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<OrderType>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static com.google.protobuf.Internal.EnumLiteMap<OrderType>
+          internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<OrderType>() {
+              public OrderType findValueByNumber(int number) {
+                return OrderType.valueOf(number);
+              }
+            };
+
+      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+          getValueDescriptor() {
+        return getDescriptor().getValues().get(index);
+      }
+      public final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptorForType() {
+        return getDescriptor();
+      }
+      public static final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptor() {
+        return market_proto.Market.Order.getDescriptor().getEnumTypes().get(1);
+      }
+
+      private static final OrderType[] VALUES = values();
+
+      public static OrderType valueOf(
+          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+          throw new java.lang.IllegalArgumentException(
+            "EnumValueDescriptor is not for this type.");
+        }
+        return VALUES[desc.getIndex()];
+      }
+
+      private final int index;
+      private final int value;
+
+      private OrderType(int index, int value) {
+        this.index = index;
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:market_proto.Order.OrderType)
     }
 
     private int bitField0_;
@@ -341,41 +438,41 @@ public final class Market {
     }
 
     public static final int WAY_FIELD_NUMBER = 4;
-    private market_proto.Market.New.OrderWay way_;
+    private market_proto.Market.Order.OrderWay way_;
     /**
-     * <code>required .market_proto.New.OrderWay way = 4;</code>
+     * <code>required .market_proto.Order.OrderWay way = 4;</code>
      */
     public boolean hasWay() {
       return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
-     * <code>required .market_proto.New.OrderWay way = 4;</code>
+     * <code>required .market_proto.Order.OrderWay way = 4;</code>
      */
-    public market_proto.Market.New.OrderWay getWay() {
+    public market_proto.Market.Order.OrderWay getWay() {
       return way_;
     }
 
-    public static final int CLIENT_ORDER_ID_FIELD_NUMBER = 5;
-    private long clientOrderId_;
+    public static final int ORDER_TYPE_FIELD_NUMBER = 5;
+    private market_proto.Market.Order.OrderType orderType_;
     /**
-     * <code>required int64 client_order_id = 5;</code>
+     * <code>required .market_proto.Order.OrderType order_type = 5;</code>
      */
-    public boolean hasClientOrderId() {
+    public boolean hasOrderType() {
       return ((bitField0_ & 0x00000010) == 0x00000010);
     }
     /**
-     * <code>required int64 client_order_id = 5;</code>
+     * <code>required .market_proto.Order.OrderType order_type = 5;</code>
      */
-    public long getClientOrderId() {
-      return clientOrderId_;
+    public market_proto.Market.Order.OrderType getOrderType() {
+      return orderType_;
     }
 
     private void initFields() {
       instrument_ = "";
       quantity_ = 0L;
       price_ = 0F;
-      way_ = market_proto.Market.New.OrderWay.BUY;
-      clientOrderId_ = 0L;
+      way_ = market_proto.Market.Order.OrderWay.BUY;
+      orderType_ = market_proto.Market.Order.OrderType.NEW;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -399,7 +496,7 @@ public final class Market {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (!hasClientOrderId()) {
+      if (!hasOrderType()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -423,7 +520,7 @@ public final class Market {
         output.writeEnum(4, way_.getNumber());
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        output.writeInt64(5, clientOrderId_);
+        output.writeEnum(5, orderType_.getNumber());
       }
       getUnknownFields().writeTo(output);
     }
@@ -452,7 +549,7 @@ public final class Market {
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(5, clientOrderId_);
+          .computeEnumSize(5, orderType_.getNumber());
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -466,53 +563,53 @@ public final class Market {
       return super.writeReplace();
     }
 
-    public static market_proto.Market.New parseFrom(
+    public static market_proto.Market.Order parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static market_proto.Market.New parseFrom(
+    public static market_proto.Market.Order parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static market_proto.Market.New parseFrom(byte[] data)
+    public static market_proto.Market.Order parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static market_proto.Market.New parseFrom(
+    public static market_proto.Market.Order parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static market_proto.Market.New parseFrom(java.io.InputStream input)
+    public static market_proto.Market.Order parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static market_proto.Market.New parseFrom(
+    public static market_proto.Market.Order parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static market_proto.Market.New parseDelimitedFrom(java.io.InputStream input)
+    public static market_proto.Market.Order parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static market_proto.Market.New parseDelimitedFrom(
+    public static market_proto.Market.Order parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static market_proto.Market.New parseFrom(
+    public static market_proto.Market.Order parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static market_proto.Market.New parseFrom(
+    public static market_proto.Market.Order parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -521,7 +618,7 @@ public final class Market {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(market_proto.Market.New prototype) {
+    public static Builder newBuilder(market_proto.Market.Order prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -533,25 +630,25 @@ public final class Market {
       return builder;
     }
     /**
-     * Protobuf type {@code market_proto.New}
+     * Protobuf type {@code market_proto.Order}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:market_proto.New)
-        market_proto.Market.NewOrBuilder {
+        // @@protoc_insertion_point(builder_implements:market_proto.Order)
+        market_proto.Market.OrderOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return market_proto.Market.internal_static_market_proto_New_descriptor;
+        return market_proto.Market.internal_static_market_proto_Order_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return market_proto.Market.internal_static_market_proto_New_fieldAccessorTable
+        return market_proto.Market.internal_static_market_proto_Order_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                market_proto.Market.New.class, market_proto.Market.New.Builder.class);
+                market_proto.Market.Order.class, market_proto.Market.Order.Builder.class);
       }
 
-      // Construct using market_proto.Market.New.newBuilder()
+      // Construct using market_proto.Market.Order.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -577,9 +674,9 @@ public final class Market {
         bitField0_ = (bitField0_ & ~0x00000002);
         price_ = 0F;
         bitField0_ = (bitField0_ & ~0x00000004);
-        way_ = market_proto.Market.New.OrderWay.BUY;
+        way_ = market_proto.Market.Order.OrderWay.BUY;
         bitField0_ = (bitField0_ & ~0x00000008);
-        clientOrderId_ = 0L;
+        orderType_ = market_proto.Market.Order.OrderType.NEW;
         bitField0_ = (bitField0_ & ~0x00000010);
         return this;
       }
@@ -590,23 +687,23 @@ public final class Market {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return market_proto.Market.internal_static_market_proto_New_descriptor;
+        return market_proto.Market.internal_static_market_proto_Order_descriptor;
       }
 
-      public market_proto.Market.New getDefaultInstanceForType() {
-        return market_proto.Market.New.getDefaultInstance();
+      public market_proto.Market.Order getDefaultInstanceForType() {
+        return market_proto.Market.Order.getDefaultInstance();
       }
 
-      public market_proto.Market.New build() {
-        market_proto.Market.New result = buildPartial();
+      public market_proto.Market.Order build() {
+        market_proto.Market.Order result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public market_proto.Market.New buildPartial() {
-        market_proto.Market.New result = new market_proto.Market.New(this);
+      public market_proto.Market.Order buildPartial() {
+        market_proto.Market.Order result = new market_proto.Market.Order(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -628,23 +725,23 @@ public final class Market {
         if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
           to_bitField0_ |= 0x00000010;
         }
-        result.clientOrderId_ = clientOrderId_;
+        result.orderType_ = orderType_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof market_proto.Market.New) {
-          return mergeFrom((market_proto.Market.New)other);
+        if (other instanceof market_proto.Market.Order) {
+          return mergeFrom((market_proto.Market.Order)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(market_proto.Market.New other) {
-        if (other == market_proto.Market.New.getDefaultInstance()) return this;
+      public Builder mergeFrom(market_proto.Market.Order other) {
+        if (other == market_proto.Market.Order.getDefaultInstance()) return this;
         if (other.hasInstrument()) {
           bitField0_ |= 0x00000001;
           instrument_ = other.instrument_;
@@ -659,8 +756,8 @@ public final class Market {
         if (other.hasWay()) {
           setWay(other.getWay());
         }
-        if (other.hasClientOrderId()) {
-          setClientOrderId(other.getClientOrderId());
+        if (other.hasOrderType()) {
+          setOrderType(other.getOrderType());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -683,7 +780,7 @@ public final class Market {
           
           return false;
         }
-        if (!hasClientOrderId()) {
+        if (!hasOrderType()) {
           
           return false;
         }
@@ -694,11 +791,11 @@ public final class Market {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        market_proto.Market.New parsedMessage = null;
+        market_proto.Market.Order parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (market_proto.Market.New) e.getUnfinishedMessage();
+          parsedMessage = (market_proto.Market.Order) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -849,23 +946,23 @@ public final class Market {
         return this;
       }
 
-      private market_proto.Market.New.OrderWay way_ = market_proto.Market.New.OrderWay.BUY;
+      private market_proto.Market.Order.OrderWay way_ = market_proto.Market.Order.OrderWay.BUY;
       /**
-       * <code>required .market_proto.New.OrderWay way = 4;</code>
+       * <code>required .market_proto.Order.OrderWay way = 4;</code>
        */
       public boolean hasWay() {
         return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
-       * <code>required .market_proto.New.OrderWay way = 4;</code>
+       * <code>required .market_proto.Order.OrderWay way = 4;</code>
        */
-      public market_proto.Market.New.OrderWay getWay() {
+      public market_proto.Market.Order.OrderWay getWay() {
         return way_;
       }
       /**
-       * <code>required .market_proto.New.OrderWay way = 4;</code>
+       * <code>required .market_proto.Order.OrderWay way = 4;</code>
        */
-      public Builder setWay(market_proto.Market.New.OrderWay value) {
+      public Builder setWay(market_proto.Market.Order.OrderWay value) {
         if (value == null) {
           throw new NullPointerException();
         }
@@ -875,461 +972,59 @@ public final class Market {
         return this;
       }
       /**
-       * <code>required .market_proto.New.OrderWay way = 4;</code>
+       * <code>required .market_proto.Order.OrderWay way = 4;</code>
        */
       public Builder clearWay() {
         bitField0_ = (bitField0_ & ~0x00000008);
-        way_ = market_proto.Market.New.OrderWay.BUY;
+        way_ = market_proto.Market.Order.OrderWay.BUY;
         onChanged();
         return this;
       }
 
-      private long clientOrderId_ ;
+      private market_proto.Market.Order.OrderType orderType_ = market_proto.Market.Order.OrderType.NEW;
       /**
-       * <code>required int64 client_order_id = 5;</code>
+       * <code>required .market_proto.Order.OrderType order_type = 5;</code>
        */
-      public boolean hasClientOrderId() {
+      public boolean hasOrderType() {
         return ((bitField0_ & 0x00000010) == 0x00000010);
       }
       /**
-       * <code>required int64 client_order_id = 5;</code>
+       * <code>required .market_proto.Order.OrderType order_type = 5;</code>
        */
-      public long getClientOrderId() {
-        return clientOrderId_;
+      public market_proto.Market.Order.OrderType getOrderType() {
+        return orderType_;
       }
       /**
-       * <code>required int64 client_order_id = 5;</code>
+       * <code>required .market_proto.Order.OrderType order_type = 5;</code>
        */
-      public Builder setClientOrderId(long value) {
+      public Builder setOrderType(market_proto.Market.Order.OrderType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
         bitField0_ |= 0x00000010;
-        clientOrderId_ = value;
+        orderType_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required int64 client_order_id = 5;</code>
+       * <code>required .market_proto.Order.OrderType order_type = 5;</code>
        */
-      public Builder clearClientOrderId() {
+      public Builder clearOrderType() {
         bitField0_ = (bitField0_ & ~0x00000010);
-        clientOrderId_ = 0L;
+        orderType_ = market_proto.Market.Order.OrderType.NEW;
         onChanged();
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:market_proto.New)
+      // @@protoc_insertion_point(builder_scope:market_proto.Order)
     }
 
     static {
-      defaultInstance = new New(true);
+      defaultInstance = new Order(true);
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:market_proto.New)
-  }
-
-  public interface CancelOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:market_proto.Cancel)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>required int64 client_order_id = 1;</code>
-     */
-    boolean hasClientOrderId();
-    /**
-     * <code>required int64 client_order_id = 1;</code>
-     */
-    long getClientOrderId();
-  }
-  /**
-   * Protobuf type {@code market_proto.Cancel}
-   */
-  public static final class Cancel extends
-      com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:market_proto.Cancel)
-      CancelOrBuilder {
-    // Use Cancel.newBuilder() to construct.
-    private Cancel(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
-      super(builder);
-      this.unknownFields = builder.getUnknownFields();
-    }
-    private Cancel(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final Cancel defaultInstance;
-    public static Cancel getDefaultInstance() {
-      return defaultInstance;
-    }
-
-    public Cancel getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
-    }
-    private Cancel(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 8: {
-              bitField0_ |= 0x00000001;
-              clientOrderId_ = input.readInt64();
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return market_proto.Market.internal_static_market_proto_Cancel_descriptor;
-    }
-
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return market_proto.Market.internal_static_market_proto_Cancel_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              market_proto.Market.Cancel.class, market_proto.Market.Cancel.Builder.class);
-    }
-
-    public static com.google.protobuf.Parser<Cancel> PARSER =
-        new com.google.protobuf.AbstractParser<Cancel>() {
-      public Cancel parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Cancel(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<Cancel> getParserForType() {
-      return PARSER;
-    }
-
-    private int bitField0_;
-    public static final int CLIENT_ORDER_ID_FIELD_NUMBER = 1;
-    private long clientOrderId_;
-    /**
-     * <code>required int64 client_order_id = 1;</code>
-     */
-    public boolean hasClientOrderId() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
-    }
-    /**
-     * <code>required int64 client_order_id = 1;</code>
-     */
-    public long getClientOrderId() {
-      return clientOrderId_;
-    }
-
-    private void initFields() {
-      clientOrderId_ = 0L;
-    }
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      if (!hasClientOrderId()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      getSerializedSize();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeInt64(1, clientOrderId_);
-      }
-      getUnknownFields().writeTo(output);
-    }
-
-    private int memoizedSerializedSize = -1;
-    public int getSerializedSize() {
-      int size = memoizedSerializedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(1, clientOrderId_);
-      }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
-      return size;
-    }
-
-    private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
-    }
-
-    public static market_proto.Market.Cancel parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static market_proto.Market.Cancel parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static market_proto.Market.Cancel parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static market_proto.Market.Cancel parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static market_proto.Market.Cancel parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-    public static market_proto.Market.Cancel parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-    public static market_proto.Market.Cancel parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
-    }
-    public static market_proto.Market.Cancel parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
-    }
-    public static market_proto.Market.Cancel parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-    public static market_proto.Market.Cancel parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-
-    public static Builder newBuilder() { return Builder.create(); }
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(market_proto.Market.Cancel prototype) {
-      return newBuilder().mergeFrom(prototype);
-    }
-    public Builder toBuilder() { return newBuilder(this); }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code market_proto.Cancel}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:market_proto.Cancel)
-        market_proto.Market.CancelOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return market_proto.Market.internal_static_market_proto_Cancel_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return market_proto.Market.internal_static_market_proto_Cancel_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                market_proto.Market.Cancel.class, market_proto.Market.Cancel.Builder.class);
-      }
-
-      // Construct using market_proto.Market.Cancel.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-        }
-      }
-      private static Builder create() {
-        return new Builder();
-      }
-
-      public Builder clear() {
-        super.clear();
-        clientOrderId_ = 0L;
-        bitField0_ = (bitField0_ & ~0x00000001);
-        return this;
-      }
-
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return market_proto.Market.internal_static_market_proto_Cancel_descriptor;
-      }
-
-      public market_proto.Market.Cancel getDefaultInstanceForType() {
-        return market_proto.Market.Cancel.getDefaultInstance();
-      }
-
-      public market_proto.Market.Cancel build() {
-        market_proto.Market.Cancel result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      public market_proto.Market.Cancel buildPartial() {
-        market_proto.Market.Cancel result = new market_proto.Market.Cancel(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
-        }
-        result.clientOrderId_ = clientOrderId_;
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
-      }
-
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof market_proto.Market.Cancel) {
-          return mergeFrom((market_proto.Market.Cancel)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(market_proto.Market.Cancel other) {
-        if (other == market_proto.Market.Cancel.getDefaultInstance()) return this;
-        if (other.hasClientOrderId()) {
-          setClientOrderId(other.getClientOrderId());
-        }
-        this.mergeUnknownFields(other.getUnknownFields());
-        return this;
-      }
-
-      public final boolean isInitialized() {
-        if (!hasClientOrderId()) {
-          
-          return false;
-        }
-        return true;
-      }
-
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        market_proto.Market.Cancel parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (market_proto.Market.Cancel) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      private int bitField0_;
-
-      private long clientOrderId_ ;
-      /**
-       * <code>required int64 client_order_id = 1;</code>
-       */
-      public boolean hasClientOrderId() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
-      }
-      /**
-       * <code>required int64 client_order_id = 1;</code>
-       */
-      public long getClientOrderId() {
-        return clientOrderId_;
-      }
-      /**
-       * <code>required int64 client_order_id = 1;</code>
-       */
-      public Builder setClientOrderId(long value) {
-        bitField0_ |= 0x00000001;
-        clientOrderId_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required int64 client_order_id = 1;</code>
-       */
-      public Builder clearClientOrderId() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        clientOrderId_ = 0L;
-        onChanged();
-        return this;
-      }
-
-      // @@protoc_insertion_point(builder_scope:market_proto.Cancel)
-    }
-
-    static {
-      defaultInstance = new Cancel(true);
-      defaultInstance.initFields();
-    }
-
-    // @@protoc_insertion_point(class_scope:market_proto.Cancel)
+    // @@protoc_insertion_point(class_scope:market_proto.Order)
   }
 
   public interface UpdateOrderOrBuilder extends
@@ -1337,63 +1032,54 @@ public final class Market {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>required int64 client_order_id = 1;</code>
-     */
-    boolean hasClientOrderId();
-    /**
-     * <code>required int64 client_order_id = 1;</code>
-     */
-    long getClientOrderId();
-
-    /**
-     * <code>required .market_proto.UpdateOrder.OrderStatus status = 2;</code>
+     * <code>required .market_proto.UpdateOrder.OrderStatus status = 1;</code>
      */
     boolean hasStatus();
     /**
-     * <code>required .market_proto.UpdateOrder.OrderStatus status = 2;</code>
+     * <code>required .market_proto.UpdateOrder.OrderStatus status = 1;</code>
      */
     market_proto.Market.UpdateOrder.OrderStatus getStatus();
 
     /**
-     * <code>optional int32 exec_qty = 3;</code>
+     * <code>optional int32 exec_qty = 2;</code>
      */
     boolean hasExecQty();
     /**
-     * <code>optional int32 exec_qty = 3;</code>
+     * <code>optional int32 exec_qty = 2;</code>
      */
     int getExecQty();
 
     /**
-     * <code>optional int32 remaining_qty = 4;</code>
+     * <code>optional int32 remaining_qty = 3;</code>
      */
     boolean hasRemainingQty();
     /**
-     * <code>optional int32 remaining_qty = 4;</code>
+     * <code>optional int32 remaining_qty = 3;</code>
      */
     int getRemainingQty();
 
     /**
-     * <code>optional float exec_price = 5;</code>
+     * <code>optional float exec_price = 4;</code>
      */
     boolean hasExecPrice();
     /**
-     * <code>optional float exec_price = 5;</code>
+     * <code>optional float exec_price = 4;</code>
      */
     float getExecPrice();
 
     /**
-     * <code>optional string messasge = 6;</code>
+     * <code>optional string message = 5;</code>
      */
-    boolean hasMessasge();
+    boolean hasMessage();
     /**
-     * <code>optional string messasge = 6;</code>
+     * <code>optional string message = 5;</code>
      */
-    java.lang.String getMessasge();
+    java.lang.String getMessage();
     /**
-     * <code>optional string messasge = 6;</code>
+     * <code>optional string message = 5;</code>
      */
     com.google.protobuf.ByteString
-        getMessasgeBytes();
+        getMessageBytes();
   }
   /**
    * Protobuf type {@code market_proto.UpdateOrder}
@@ -1448,40 +1134,35 @@ public final class Market {
               break;
             }
             case 8: {
-              bitField0_ |= 0x00000001;
-              clientOrderId_ = input.readInt64();
-              break;
-            }
-            case 16: {
               int rawValue = input.readEnum();
               market_proto.Market.UpdateOrder.OrderStatus value = market_proto.Market.UpdateOrder.OrderStatus.valueOf(rawValue);
               if (value == null) {
-                unknownFields.mergeVarintField(2, rawValue);
+                unknownFields.mergeVarintField(1, rawValue);
               } else {
-                bitField0_ |= 0x00000002;
+                bitField0_ |= 0x00000001;
                 status_ = value;
               }
               break;
             }
-            case 24: {
-              bitField0_ |= 0x00000004;
+            case 16: {
+              bitField0_ |= 0x00000002;
               execQty_ = input.readInt32();
               break;
             }
-            case 32: {
-              bitField0_ |= 0x00000008;
+            case 24: {
+              bitField0_ |= 0x00000004;
               remainingQty_ = input.readInt32();
               break;
             }
-            case 45: {
-              bitField0_ |= 0x00000010;
+            case 37: {
+              bitField0_ |= 0x00000008;
               execPrice_ = input.readFloat();
               break;
             }
-            case 50: {
+            case 42: {
               com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000020;
-              messasge_ = bs;
+              bitField0_ |= 0x00000010;
+              message_ = bs;
               break;
             }
           }
@@ -1615,94 +1296,79 @@ public final class Market {
     }
 
     private int bitField0_;
-    public static final int CLIENT_ORDER_ID_FIELD_NUMBER = 1;
-    private long clientOrderId_;
+    public static final int STATUS_FIELD_NUMBER = 1;
+    private market_proto.Market.UpdateOrder.OrderStatus status_;
     /**
-     * <code>required int64 client_order_id = 1;</code>
+     * <code>required .market_proto.UpdateOrder.OrderStatus status = 1;</code>
      */
-    public boolean hasClientOrderId() {
+    public boolean hasStatus() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>required int64 client_order_id = 1;</code>
-     */
-    public long getClientOrderId() {
-      return clientOrderId_;
-    }
-
-    public static final int STATUS_FIELD_NUMBER = 2;
-    private market_proto.Market.UpdateOrder.OrderStatus status_;
-    /**
-     * <code>required .market_proto.UpdateOrder.OrderStatus status = 2;</code>
-     */
-    public boolean hasStatus() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
-    }
-    /**
-     * <code>required .market_proto.UpdateOrder.OrderStatus status = 2;</code>
+     * <code>required .market_proto.UpdateOrder.OrderStatus status = 1;</code>
      */
     public market_proto.Market.UpdateOrder.OrderStatus getStatus() {
       return status_;
     }
 
-    public static final int EXEC_QTY_FIELD_NUMBER = 3;
+    public static final int EXEC_QTY_FIELD_NUMBER = 2;
     private int execQty_;
     /**
-     * <code>optional int32 exec_qty = 3;</code>
+     * <code>optional int32 exec_qty = 2;</code>
      */
     public boolean hasExecQty() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
+      return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>optional int32 exec_qty = 3;</code>
+     * <code>optional int32 exec_qty = 2;</code>
      */
     public int getExecQty() {
       return execQty_;
     }
 
-    public static final int REMAINING_QTY_FIELD_NUMBER = 4;
+    public static final int REMAINING_QTY_FIELD_NUMBER = 3;
     private int remainingQty_;
     /**
-     * <code>optional int32 remaining_qty = 4;</code>
+     * <code>optional int32 remaining_qty = 3;</code>
      */
     public boolean hasRemainingQty() {
-      return ((bitField0_ & 0x00000008) == 0x00000008);
+      return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
-     * <code>optional int32 remaining_qty = 4;</code>
+     * <code>optional int32 remaining_qty = 3;</code>
      */
     public int getRemainingQty() {
       return remainingQty_;
     }
 
-    public static final int EXEC_PRICE_FIELD_NUMBER = 5;
+    public static final int EXEC_PRICE_FIELD_NUMBER = 4;
     private float execPrice_;
     /**
-     * <code>optional float exec_price = 5;</code>
+     * <code>optional float exec_price = 4;</code>
      */
     public boolean hasExecPrice() {
-      return ((bitField0_ & 0x00000010) == 0x00000010);
+      return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
-     * <code>optional float exec_price = 5;</code>
+     * <code>optional float exec_price = 4;</code>
      */
     public float getExecPrice() {
       return execPrice_;
     }
 
-    public static final int MESSASGE_FIELD_NUMBER = 6;
-    private java.lang.Object messasge_;
+    public static final int MESSAGE_FIELD_NUMBER = 5;
+    private java.lang.Object message_;
     /**
-     * <code>optional string messasge = 6;</code>
+     * <code>optional string message = 5;</code>
      */
-    public boolean hasMessasge() {
-      return ((bitField0_ & 0x00000020) == 0x00000020);
+    public boolean hasMessage() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
     }
     /**
-     * <code>optional string messasge = 6;</code>
+     * <code>optional string message = 5;</code>
      */
-    public java.lang.String getMessasge() {
-      java.lang.Object ref = messasge_;
+    public java.lang.String getMessage() {
+      java.lang.Object ref = message_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
@@ -1710,22 +1376,22 @@ public final class Market {
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
-          messasge_ = s;
+          message_ = s;
         }
         return s;
       }
     }
     /**
-     * <code>optional string messasge = 6;</code>
+     * <code>optional string message = 5;</code>
      */
     public com.google.protobuf.ByteString
-        getMessasgeBytes() {
-      java.lang.Object ref = messasge_;
+        getMessageBytes() {
+      java.lang.Object ref = message_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        messasge_ = b;
+        message_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -1733,12 +1399,11 @@ public final class Market {
     }
 
     private void initFields() {
-      clientOrderId_ = 0L;
       status_ = market_proto.Market.UpdateOrder.OrderStatus.ACK;
       execQty_ = 0;
       remainingQty_ = 0;
       execPrice_ = 0F;
-      messasge_ = "";
+      message_ = "";
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -1746,10 +1411,6 @@ public final class Market {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
-      if (!hasClientOrderId()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
       if (!hasStatus()) {
         memoizedIsInitialized = 0;
         return false;
@@ -1762,22 +1423,19 @@ public final class Market {
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeInt64(1, clientOrderId_);
+        output.writeEnum(1, status_.getNumber());
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeEnum(2, status_.getNumber());
+        output.writeInt32(2, execQty_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeInt32(3, execQty_);
+        output.writeInt32(3, remainingQty_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeInt32(4, remainingQty_);
+        output.writeFloat(4, execPrice_);
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        output.writeFloat(5, execPrice_);
-      }
-      if (((bitField0_ & 0x00000020) == 0x00000020)) {
-        output.writeBytes(6, getMessasgeBytes());
+        output.writeBytes(5, getMessageBytes());
       }
       getUnknownFields().writeTo(output);
     }
@@ -1790,27 +1448,23 @@ public final class Market {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(1, clientOrderId_);
+          .computeEnumSize(1, status_.getNumber());
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(2, status_.getNumber());
+          .computeInt32Size(2, execQty_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(3, execQty_);
+          .computeInt32Size(3, remainingQty_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(4, remainingQty_);
+          .computeFloatSize(4, execPrice_);
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeFloatSize(5, execPrice_);
-      }
-      if (((bitField0_ & 0x00000020) == 0x00000020)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(6, getMessasgeBytes());
+          .computeBytesSize(5, getMessageBytes());
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -1929,18 +1583,16 @@ public final class Market {
 
       public Builder clear() {
         super.clear();
-        clientOrderId_ = 0L;
-        bitField0_ = (bitField0_ & ~0x00000001);
         status_ = market_proto.Market.UpdateOrder.OrderStatus.ACK;
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000001);
         execQty_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000002);
         remainingQty_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000004);
         execPrice_ = 0F;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        message_ = "";
         bitField0_ = (bitField0_ & ~0x00000010);
-        messasge_ = "";
-        bitField0_ = (bitField0_ & ~0x00000020);
         return this;
       }
 
@@ -1972,27 +1624,23 @@ public final class Market {
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
           to_bitField0_ |= 0x00000001;
         }
-        result.clientOrderId_ = clientOrderId_;
+        result.status_ = status_;
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
-        result.status_ = status_;
+        result.execQty_ = execQty_;
         if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000004;
         }
-        result.execQty_ = execQty_;
+        result.remainingQty_ = remainingQty_;
         if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
           to_bitField0_ |= 0x00000008;
         }
-        result.remainingQty_ = remainingQty_;
+        result.execPrice_ = execPrice_;
         if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
           to_bitField0_ |= 0x00000010;
         }
-        result.execPrice_ = execPrice_;
-        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
-          to_bitField0_ |= 0x00000020;
-        }
-        result.messasge_ = messasge_;
+        result.message_ = message_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -2009,9 +1657,6 @@ public final class Market {
 
       public Builder mergeFrom(market_proto.Market.UpdateOrder other) {
         if (other == market_proto.Market.UpdateOrder.getDefaultInstance()) return this;
-        if (other.hasClientOrderId()) {
-          setClientOrderId(other.getClientOrderId());
-        }
         if (other.hasStatus()) {
           setStatus(other.getStatus());
         }
@@ -2024,9 +1669,9 @@ public final class Market {
         if (other.hasExecPrice()) {
           setExecPrice(other.getExecPrice());
         }
-        if (other.hasMessasge()) {
-          bitField0_ |= 0x00000020;
-          messasge_ = other.messasge_;
+        if (other.hasMessage()) {
+          bitField0_ |= 0x00000010;
+          message_ = other.message_;
           onChanged();
         }
         this.mergeUnknownFields(other.getUnknownFields());
@@ -2034,10 +1679,6 @@ public final class Market {
       }
 
       public final boolean isInitialized() {
-        if (!hasClientOrderId()) {
-          
-          return false;
-        }
         if (!hasStatus()) {
           
           return false;
@@ -2064,68 +1705,36 @@ public final class Market {
       }
       private int bitField0_;
 
-      private long clientOrderId_ ;
+      private market_proto.Market.UpdateOrder.OrderStatus status_ = market_proto.Market.UpdateOrder.OrderStatus.ACK;
       /**
-       * <code>required int64 client_order_id = 1;</code>
+       * <code>required .market_proto.UpdateOrder.OrderStatus status = 1;</code>
        */
-      public boolean hasClientOrderId() {
+      public boolean hasStatus() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>required int64 client_order_id = 1;</code>
-       */
-      public long getClientOrderId() {
-        return clientOrderId_;
-      }
-      /**
-       * <code>required int64 client_order_id = 1;</code>
-       */
-      public Builder setClientOrderId(long value) {
-        bitField0_ |= 0x00000001;
-        clientOrderId_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required int64 client_order_id = 1;</code>
-       */
-      public Builder clearClientOrderId() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        clientOrderId_ = 0L;
-        onChanged();
-        return this;
-      }
-
-      private market_proto.Market.UpdateOrder.OrderStatus status_ = market_proto.Market.UpdateOrder.OrderStatus.ACK;
-      /**
-       * <code>required .market_proto.UpdateOrder.OrderStatus status = 2;</code>
-       */
-      public boolean hasStatus() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      /**
-       * <code>required .market_proto.UpdateOrder.OrderStatus status = 2;</code>
+       * <code>required .market_proto.UpdateOrder.OrderStatus status = 1;</code>
        */
       public market_proto.Market.UpdateOrder.OrderStatus getStatus() {
         return status_;
       }
       /**
-       * <code>required .market_proto.UpdateOrder.OrderStatus status = 2;</code>
+       * <code>required .market_proto.UpdateOrder.OrderStatus status = 1;</code>
        */
       public Builder setStatus(market_proto.Market.UpdateOrder.OrderStatus value) {
         if (value == null) {
           throw new NullPointerException();
         }
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000001;
         status_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required .market_proto.UpdateOrder.OrderStatus status = 2;</code>
+       * <code>required .market_proto.UpdateOrder.OrderStatus status = 1;</code>
        */
       public Builder clearStatus() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000001);
         status_ = market_proto.Market.UpdateOrder.OrderStatus.ACK;
         onChanged();
         return this;
@@ -2133,31 +1742,31 @@ public final class Market {
 
       private int execQty_ ;
       /**
-       * <code>optional int32 exec_qty = 3;</code>
+       * <code>optional int32 exec_qty = 2;</code>
        */
       public boolean hasExecQty() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
+        return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>optional int32 exec_qty = 3;</code>
+       * <code>optional int32 exec_qty = 2;</code>
        */
       public int getExecQty() {
         return execQty_;
       }
       /**
-       * <code>optional int32 exec_qty = 3;</code>
+       * <code>optional int32 exec_qty = 2;</code>
        */
       public Builder setExecQty(int value) {
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000002;
         execQty_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 exec_qty = 3;</code>
+       * <code>optional int32 exec_qty = 2;</code>
        */
       public Builder clearExecQty() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000002);
         execQty_ = 0;
         onChanged();
         return this;
@@ -2165,31 +1774,31 @@ public final class Market {
 
       private int remainingQty_ ;
       /**
-       * <code>optional int32 remaining_qty = 4;</code>
+       * <code>optional int32 remaining_qty = 3;</code>
        */
       public boolean hasRemainingQty() {
-        return ((bitField0_ & 0x00000008) == 0x00000008);
+        return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
-       * <code>optional int32 remaining_qty = 4;</code>
+       * <code>optional int32 remaining_qty = 3;</code>
        */
       public int getRemainingQty() {
         return remainingQty_;
       }
       /**
-       * <code>optional int32 remaining_qty = 4;</code>
+       * <code>optional int32 remaining_qty = 3;</code>
        */
       public Builder setRemainingQty(int value) {
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000004;
         remainingQty_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 remaining_qty = 4;</code>
+       * <code>optional int32 remaining_qty = 3;</code>
        */
       public Builder clearRemainingQty() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000004);
         remainingQty_ = 0;
         onChanged();
         return this;
@@ -2197,54 +1806,54 @@ public final class Market {
 
       private float execPrice_ ;
       /**
-       * <code>optional float exec_price = 5;</code>
+       * <code>optional float exec_price = 4;</code>
        */
       public boolean hasExecPrice() {
-        return ((bitField0_ & 0x00000010) == 0x00000010);
+        return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
-       * <code>optional float exec_price = 5;</code>
+       * <code>optional float exec_price = 4;</code>
        */
       public float getExecPrice() {
         return execPrice_;
       }
       /**
-       * <code>optional float exec_price = 5;</code>
+       * <code>optional float exec_price = 4;</code>
        */
       public Builder setExecPrice(float value) {
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000008;
         execPrice_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional float exec_price = 5;</code>
+       * <code>optional float exec_price = 4;</code>
        */
       public Builder clearExecPrice() {
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000008);
         execPrice_ = 0F;
         onChanged();
         return this;
       }
 
-      private java.lang.Object messasge_ = "";
+      private java.lang.Object message_ = "";
       /**
-       * <code>optional string messasge = 6;</code>
+       * <code>optional string message = 5;</code>
        */
-      public boolean hasMessasge() {
-        return ((bitField0_ & 0x00000020) == 0x00000020);
+      public boolean hasMessage() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
       }
       /**
-       * <code>optional string messasge = 6;</code>
+       * <code>optional string message = 5;</code>
        */
-      public java.lang.String getMessasge() {
-        java.lang.Object ref = messasge_;
+      public java.lang.String getMessage() {
+        java.lang.Object ref = message_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
-            messasge_ = s;
+            message_ = s;
           }
           return s;
         } else {
@@ -2252,53 +1861,53 @@ public final class Market {
         }
       }
       /**
-       * <code>optional string messasge = 6;</code>
+       * <code>optional string message = 5;</code>
        */
       public com.google.protobuf.ByteString
-          getMessasgeBytes() {
-        java.lang.Object ref = messasge_;
+          getMessageBytes() {
+        java.lang.Object ref = message_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          messasge_ = b;
+          message_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>optional string messasge = 6;</code>
+       * <code>optional string message = 5;</code>
        */
-      public Builder setMessasge(
+      public Builder setMessage(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000020;
-        messasge_ = value;
+  bitField0_ |= 0x00000010;
+        message_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional string messasge = 6;</code>
+       * <code>optional string message = 5;</code>
        */
-      public Builder clearMessasge() {
-        bitField0_ = (bitField0_ & ~0x00000020);
-        messasge_ = getDefaultInstance().getMessasge();
+      public Builder clearMessage() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        message_ = getDefaultInstance().getMessage();
         onChanged();
         return this;
       }
       /**
-       * <code>optional string messasge = 6;</code>
+       * <code>optional string message = 5;</code>
        */
-      public Builder setMessasgeBytes(
+      public Builder setMessageBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000020;
-        messasge_ = value;
+  bitField0_ |= 0x00000010;
+        message_ = value;
         onChanged();
         return this;
       }
@@ -3538,15 +3147,10 @@ public final class Market {
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_market_proto_New_descriptor;
+    internal_static_market_proto_Order_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_market_proto_New_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_market_proto_Cancel_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_market_proto_Cancel_fieldAccessorTable;
+      internal_static_market_proto_Order_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_market_proto_UpdateOrder_descriptor;
   private static
@@ -3571,23 +3175,23 @@ public final class Market {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\014market.proto\022\014market_proto\"\233\001\n\003New\022\022\n\n" +
-      "instrument\030\001 \002(\t\022\020\n\010quantity\030\002 \002(\003\022\r\n\005pr" +
-      "ice\030\003 \002(\002\022\'\n\003way\030\004 \002(\0162\032.market_proto.Ne" +
-      "w.OrderWay\022\027\n\017client_order_id\030\005 \002(\003\"\035\n\010O" +
-      "rderWay\022\007\n\003BUY\020\000\022\010\n\004SELL\020\001\"!\n\006Cancel\022\027\n\017" +
-      "client_order_id\030\001 \002(\003\"\332\001\n\013UpdateOrder\022\027\n" +
-      "\017client_order_id\030\001 \002(\003\0225\n\006status\030\002 \002(\0162%" +
-      ".market_proto.UpdateOrder.OrderStatus\022\020\n" +
-      "\010exec_qty\030\003 \001(\005\022\025\n\rremaining_qty\030\004 \001(\005\022\022" +
-      "\n\nexec_price\030\005 \001(\002\022\020\n\010messasge\030\006 \001(\t\",\n\013",
-      "OrderStatus\022\007\n\003ACK\020\000\022\010\n\004NACK\020\001\022\n\n\006FILLED" +
-      "\020\002\"8\n\021ConnectionRequest\022\021\n\tclient_id\030\001 \002" +
-      "(\003\022\020\n\010password\030\002 \002(\t\"\222\001\n\022ConnectionRespo" +
-      "nse\022>\n\006status\030\001 \002(\0162..market_proto.Conne" +
-      "ctionResponse.SessionStatus\022\017\n\007message\030\002" +
-      " \001(\t\"+\n\rSessionStatus\022\014\n\010ACCEPTED\020\000\022\014\n\010R" +
-      "EJECTED\020\001"
+      "\n\014market.proto\022\014market_proto\"\347\001\n\005Order\022\022" +
+      "\n\ninstrument\030\001 \002(\t\022\020\n\010quantity\030\002 \002(\003\022\r\n\005" +
+      "price\030\003 \002(\002\022)\n\003way\030\004 \002(\0162\034.market_proto." +
+      "Order.OrderWay\0221\n\norder_type\030\005 \002(\0162\035.mar" +
+      "ket_proto.Order.OrderType\"\035\n\010OrderWay\022\007\n" +
+      "\003BUY\020\000\022\010\n\004SELL\020\001\",\n\tOrderType\022\007\n\003NEW\020\000\022\n" +
+      "\n\006MODIFY\020\001\022\n\n\006CANCEL\020\002\"\300\001\n\013UpdateOrder\0225" +
+      "\n\006status\030\001 \002(\0162%.market_proto.UpdateOrde" +
+      "r.OrderStatus\022\020\n\010exec_qty\030\002 \001(\005\022\025\n\rremai" +
+      "ning_qty\030\003 \001(\005\022\022\n\nexec_price\030\004 \001(\002\022\017\n\007me",
+      "ssage\030\005 \001(\t\",\n\013OrderStatus\022\007\n\003ACK\020\000\022\010\n\004N" +
+      "ACK\020\001\022\n\n\006FILLED\020\002\"8\n\021ConnectionRequest\022\021" +
+      "\n\tclient_id\030\001 \002(\003\022\020\n\010password\030\002 \002(\t\"\222\001\n\022" +
+      "ConnectionResponse\022>\n\006status\030\001 \002(\0162..mar" +
+      "ket_proto.ConnectionResponse.SessionStat" +
+      "us\022\017\n\007message\030\002 \001(\t\"+\n\rSessionStatus\022\014\n\010" +
+      "ACCEPTED\020\000\022\014\n\010REJECTED\020\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -3601,32 +3205,26 @@ public final class Market {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
-    internal_static_market_proto_New_descriptor =
+    internal_static_market_proto_Order_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_market_proto_New_fieldAccessorTable = new
+    internal_static_market_proto_Order_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_market_proto_New_descriptor,
-        new java.lang.String[] { "Instrument", "Quantity", "Price", "Way", "ClientOrderId", });
-    internal_static_market_proto_Cancel_descriptor =
-      getDescriptor().getMessageTypes().get(1);
-    internal_static_market_proto_Cancel_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_market_proto_Cancel_descriptor,
-        new java.lang.String[] { "ClientOrderId", });
+        internal_static_market_proto_Order_descriptor,
+        new java.lang.String[] { "Instrument", "Quantity", "Price", "Way", "OrderType", });
     internal_static_market_proto_UpdateOrder_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(1);
     internal_static_market_proto_UpdateOrder_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_market_proto_UpdateOrder_descriptor,
-        new java.lang.String[] { "ClientOrderId", "Status", "ExecQty", "RemainingQty", "ExecPrice", "Messasge", });
+        new java.lang.String[] { "Status", "ExecQty", "RemainingQty", "ExecPrice", "Message", });
     internal_static_market_proto_ConnectionRequest_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(2);
     internal_static_market_proto_ConnectionRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_market_proto_ConnectionRequest_descriptor,
         new java.lang.String[] { "ClientId", "Password", });
     internal_static_market_proto_ConnectionResponse_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_market_proto_ConnectionResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_market_proto_ConnectionResponse_descriptor,
