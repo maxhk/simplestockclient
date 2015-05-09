@@ -21,7 +21,6 @@ message Order {
 }
 
 message UpdateOrder {
-    required int64 client_order_id = 1;
 
     enum OrderStatus {
         ACK = 0;
@@ -29,15 +28,15 @@ message UpdateOrder {
         FILLED = 2;
     }
 
-    required OrderStatus status = 2;
+    required OrderStatus status = 1;
 
-    optional int32 exec_qty = 3;
+    optional int32 exec_qty = 2;
 
-    optional int32 remaining_qty = 4;
+    optional int32 remaining_qty = 3;
 
-    optional float exec_price = 5;
+    optional float exec_price = 4;
 
-    optional string messasge = 6;
+    optional string message = 5;
 
 }
 
